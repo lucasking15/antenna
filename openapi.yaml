@@ -1,0 +1,51 @@
+# Generated with protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/apps/protoc-gen-openapi
+
+openapi: 3.0.3
+info:
+    title: Antenna
+    version: 0.0.1
+paths:
+    /antennas:
+        get:
+            operationId: Antenna_ListAntenna
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ListAntennaReply'
+    /helloworld/{name}:
+        get:
+            summary: Sends a greeting
+            operationId: Greeter_SayHello
+            parameters:
+                - name: name
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/HelloReply'
+components:
+    schemas:
+        HelloReply:
+            properties:
+                message:
+                    type: string
+            description: The response message containing the greetings
+        ListAntennaReply:
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                msg:
+                    type: string
+                data:
+                    type: integer
+                    format: int32

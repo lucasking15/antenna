@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package api;
+import "google/api/annotations.proto";
+
+option go_package = "antenna/api;api";
+option java_multiple_files = true;
+option java_package = "api";
+
+service Antenna {
+	rpc ListAntenna (ListAntennaRequest) returns (ListAntennaReply) {
+		option (google.api.http) = {
+            get: "/antennas"
+        };
+	}
+	rpc EditAntenna (EditAntennaRequest) returns (EditAntennaReply) {
+		option (google.api.http) = {
+            get: "/edit/antennas"
+        };
+	}
+	rpc AntennaByID (AntennaByIDRequest) returns (AntennaByIDReply) {
+		option (google.api.http) = {
+            get: "/get/antennas/{id}"
+        };
+	}
+}
+
+message ListAntennaRequest {}
+message ListAntennaReply {
+	int32 code = 1;
+	string msg = 2;
+	int32 data = 3;
+}
+
+message EditAntennaRequest {
+
+}
+message EditAntennaReply {
+	int32 code = 1;
+	string msg = 2;
+	int32 data = 3;
+}
+
+message AntennaByIDRequest {
+
+}
+message AntennaByIDReply {
+	int32 code = 1;
+	string msg = 2;
+	int32 data = 3;
+}
